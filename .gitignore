@@ -1,0 +1,12 @@
+# OS related
+.DS_Store
+
+
+# Python
+__pycache__
+*.pyc
+
+
+# IDE related
+.idea
+.vscode
