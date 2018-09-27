@@ -14,8 +14,7 @@ def get_photos(path: Path):
     :return: generator object which yields Photo(s)
     """
 
-    for file_name in [x for x in path.iterdir() if x.is_file()]:
-        yield Photo(file_name)
+    return (Photo(x) for x in path.iterdir() if x.is_file())
 
 
 def detect_faces(photo: Photo):
