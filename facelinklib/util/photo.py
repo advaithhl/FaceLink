@@ -17,7 +17,7 @@ class Photo:
 
     @property
     def extension(self):
-        return self.path.name.split('.')[-1]
+        return self.path.suffix
 
     def tostring(self, *args, **kw):
         raise NotImplementedError("tostring() has been removed. "
