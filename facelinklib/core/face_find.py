@@ -59,7 +59,8 @@ def store_faces(photo: Photo, face_images):
     :param face_images: list of images formatted in array interface
     """
 
-    # make results/ folder before this is called
+    if not RESULTS.exists():
+        RESULTS.mkdir()
     img_folder = RESULTS.joinpath(photo.filename)
     img_folder.mkdir()
 
