@@ -12,3 +12,9 @@ class Person:
     @property
     def name(self):
         return self._name
+
+    def __hash__(self):
+        return hash(self._name)
+
+    def __eq__(self, another):
+        return self.name == another.name
