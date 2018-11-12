@@ -18,3 +18,6 @@ class Person:
 
     def __eq__(self, another):
         return self.name == another.name
+
+    def __str__(self):
+        return self.name
