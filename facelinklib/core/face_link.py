@@ -40,8 +40,8 @@ def make_graph():
 
     :return: networkx graph representing connections between people
     """
-    person_graph = nx.Graph()
+    person_graph = nx.MultiGraph()
     for photo_path in get_photo_path(RESULTS):
         for (person1, person2) in combinations(get_people(photo_path), 2):
-            person_graph.add_edge(person1, person2)
+            person_graph.add_edge(person1, person2, photo=photo_path.name)
     return person_graph
