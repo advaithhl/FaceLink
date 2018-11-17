@@ -31,7 +31,7 @@ def detect_faces(photo: Photo):
     img = fr.load_image_file(photo.path)
     print('Loaded', photo.path)
     face_locations = fr.face_locations(img)
-    print('find_faces done')
+    print("I found {} face(s) in this photograph.".format(len(face_locations)))
 
     face_images = []
     for face_location in face_locations:
