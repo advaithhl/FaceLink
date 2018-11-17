@@ -3,18 +3,17 @@ from sys import argv
 
 HOME = Path('.')
 RESULTS = Path('{}/results/'.format(HOME))
+if len(argv) < 2:
+    RUN_MODE = 2
+else:
+    RUN_MODE = 1
 
 
-def results_dir_safe():
-    cnt = 2
-    global RESULTS
+if RUN_MODE == 1:
     while RESULTS.exists():
-        RESULTS = Path('{}/results{}/'.format(HOME, str(cnt)))
-        cnt += 1
-    if len(argv) < 2:
-        cnt -= 2
-        RESULTS = Path('{}/results{}/'.format(HOME, str(cnt)))
-    print("+ Using folder {} as results folder".format(RESULTS))
+        print("A folder named {} exists. This might interfere with my work.".format(RESULTS))
+        print("I can use another folder to save results.")
+        new_name = input("Please enter another name for the results folder : ")
+        RESULTS = HOME.joinpath(new_name)
 
-
-results_dir_safe()
+print("+ Using {} as results folder".format(RESULTS))
